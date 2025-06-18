@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel Admin</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body {
+            padding: 20px;
+            background: #111;
+            color: white;
+            font-family: monospace;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🔧 Painel do Administrador</h1>
+
+    <button onclick="addRocks(100)">+100 Rochas</button>
+    <button onclick="addItem('Espada de Teste')">Adicionar 'Espada de Teste'</button>
+    <button onclick="healPlayer()">Curar Jogador</button>
+    <button onclick="completeMission()">Completar Missão</button>
+    <button onclick="resetGame()">Resetar Jogo</button>
+
+    <pre id="status"></pre>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>
