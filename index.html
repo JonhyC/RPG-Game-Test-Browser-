@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRG RockBox</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="game">
+        <h1>⚔️ RPG RockBox 🪨</h1>
+        <p>Você tem <span id="rocks">0</span> rochas.</p>
+        <button id="collectRock">Coletar rochas</button>
+        <button id="resetBtn">Reiniciar o Jogo</button>
+        <p id="colRocks" class="hidden">Você coletou <span id="coltdRocks">0</span> rochas.</p>
+
+        <div id="saveSlots">
+            <button onclick="loadSlot(1)">Slot 1</button>
+            <button onclick="loadSlot(2)">Slot 2</button>
+            <button onclick="loadSlot(3)">Slot 3</button>
+        </div>
+
+
+        <div id="inventory" class="hidden">
+            <h2>🎒 Inventário</h2>
+            <ul id="inventoryList"></ul>
+            <button id="usePotionBtn" class="hidden">Usar Poção de Vida</button>
+            <button id="useShieldBtn" class="hidden">Usar Poção de Escudo</button>
+        </div>
+
+        <div id="shop" class="hidden">
+            <h2>🛒 Loja</h2>
+            <button id="buySwordBtn">Comprar Espada (20 Rochas Coletadas Ou 30 Rochas Encontradas)</button>
+            <button id="buyPHealBtn">Comprar Poção de Vida (60 Rochas Coletadas Ou 80 Rochas Encontradas)</button>
+            <button id="buyPShieldBtn">Comprar Poção de Escudo (100 Rochas Coletadas Ou 120 Rochas Encontradas)</button>
+            <p id="swordStatus" class="hidden">⚔️ Você tem uma espada!</p>
+        </div>
+
+        <div id="magic" class="hidden">
+            <h2>🪄 Magias</h2>
+            <button id="castFireBtn">Lançar Bola de Fogo (10 Rochas)</button>
+        </div>
+
+        <div id="vila" class="hidden">
+            <h2>🏚️ Vilarejo</h2>
+            <p>Você agora tem acesso a Vila do Comércio</p>
+            <button id="visitVilaBtn">Visitar Vila</button>
+            <!-- Secções da Vila -->
+            <div id="seller" class="hidden">
+                <h3>🏪 Vendedor da Vila</h3>
+                <p id="fraseSeller1" class="hidden">Prazer, sou o Mouzert, o vendedor mais famoso do Vilarejo da Lua</p>
+                <p id="fraseSeller2" class="hidden">Deseja ver os meus produtos?</p>
+                <button id="nextFraseSeller">Seguinte</button>
+                <button id="enterSellerBtn" class="hidden">Ver Produtos do Vendedor</button>
+                <!-- Ver Produtos da Loja -->
+                <div id="productsSellerVila" class="hidden">
+                    <p id="fraseSeller3" class="hidden">Estes são os produtos da minha loja:</p>
+                    <ul id="listProductsSellerVila" class="hidden">
+                        <li>Madeira <button id="buyMadeira">Comprar Madeira</button></li>
+                        <li>Ferro <button id="buyFerro">Comprar Ferro</button></li>
+                        <li>Escudo Partido <button id="buyEscudoPart">Comprar Escudo Partido</button></li>
+                        <li>Barro <button id="buyBarro">Comprar Barro</button></li>
+                        <li>Sandálias <button id="buySapato">Comprar Sandálias</button></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="blackMrk" class="hidden">
+                <h2>🕴️ Mercado Negro</h2>
+                <p id="fraseBL1">Bem Vindo ao Mercado Negro do Vilarejo da Lua (Sussurro do fundo do corredor)</p>
+                <button id="enterblackMrkBtn">Entrar no Mercado Negro</button>
+                <div id="blackMrkDeal" class="hidden">
+                    <h3>🐦‍⬛ Vendedor do Mercado Negro</h3>
+                    <p id="fraseBLD1">Bem Vindo viajante.. Vejo que é novo por estes lados Obscuros do Vilarejo. Deseja
+                        comprar algo ou vender?</p>
+                    <button id="buy" class="hidden">Comprar</button>
+                    <button id="sell" class="hidden">Vender</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="map" class="hidden">
+            <h2>🗺️ Mapa</h2>
+            <pre>
+        +---+---+---+
+        | F | C | C |
+        +---+---+---+
+        |   |   |   |
+        +---+---+---+
+        </pre>
+
+            <!-- Áreas desbloqueáveis -->
+            <select id="areaSelect" class="hidden">
+                <option value="Floresta">🌲 Floresta</option>
+                <option value="Caverna">🕳️ Caverna</option>
+                <option value="Castelo">🏰 Castelo</option>
+            </select>
+            <button id="exploreBtn">🧹 Explorar</button>
+            <p id="mapMsg"></p>
+
+        </div>
+
+        <div id="combat" class="hidden">
+            <h2>⚔️ Combate</h2>
+            <p><strong>Inimigo:</strong> <span id="enemyName"></span> (HP: <span id="enemyHP"></span>)</p>
+            <p><strong>Seu HP:</strong> <span id="playerHP">30</span></p>
+            <button id="attackBtn">Atacar</button>
+            <p id="combatLog"></p>
+        </div>
+
+        <div id="mission" class="hidden">
+            <h2>📜 Missões</h2>
+            <p id="missionText"></p>
+            <button id="missionBtn">Ver Missões</button>
+            <button id="acceptmissionBtn" class="hidden">Aceitar Missão</button>
+            <button id="completemissionBtn" class="hidden">Completar Missão</button>
+            <!-- mission (P) -->
+            <p id="missionStatus"></p>
+            <p id="missionReward"></p>
+            <p id="missionDescription"></p>
+            <p id="missionObjective"></p>
+            <p id="missionProgress"></p>
+            <p id="missionName"></p>
+            <p id="missionArea"></p>
+            <p id="missionType"></p>
+            <p id="missionLevel"></p>
+            <p id="missionGiver"></p>
+            <p id="missionLog"></p>
+            <!-- Fim Missões -->
+        </div>
+
+    </div>
+    <script src="data/enemies.js"></script>
+    <script src="data/missions.js"></script>
+    <script src="data/spells.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+body {
+    background: #111;
+    color: rgb(255, 255, 255);
+    font-family: 'VT23', monospace;
+    padding: 20px;
+}
+
+#game {
+    max-width: 600px;
+    margin: auto;
+}
+
+button {
+    background: #222;
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: rgb(255, 255, 255);
+    color: #000;
+    border: none;
+}
+
+.hidden {
+    display: none;
+}
+
+pre {
+    background: #000;
+    padding: 10px;
+    border: 1px solid #fff;
+}
+
+.custom-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #000;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    padding: 10px 40px 10px 12px;
+    font-size: 16px;
+    font-family: 'VT23', monospace;
+    color: #fff;
+    width: 100%;
+    max-width: 300px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23ffffff'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 10px 10px;
+    cursor: pointer;
+    transition: background 0.2s, border 0.2s;
+}
+
+.custom-select:hover {
+    background-color: #111;
+}
+
+.custom-select:focus {
+    border-color: #6a9afc;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(106, 154, 252, 0.3);
+}
+
+.custom-select option {
+    background: #000;
+    color: #fff;
+    font-family: 'VT23', monospace;
+}
